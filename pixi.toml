@@ -1,0 +1,29 @@
+[workspace]
+authors = ["Oriol Abril-Pla <oriol.abril.pla@gmail.com>"]
+channels = ["conda-forge"]
+name = "pydata2026-ppc"
+platforms = ["win-64", "linux-64", "osx-64", "osx-arm64"]
+version = "0.1.0"
+
+[pypi-dependencies]
+arviz = { git = "git+https://github.com/arviz-devs/arviz", branch = "pydata_ppc" }
+arviz-base = { git = "git+https://github.com/arviz-devs/arviz-base", branch = "pydata_ppc"  }
+arviz-stats = { git = "git+https://github.com/arviz-devs/arviz-stats", branch = "pydata_ppc"  }
+arviz-plots = { git = "git+https://github.com/arviz-devs/arviz-plots", branch = "pydata_ppc"  }
+
+[dependencies]
+ipykernel = "*"
+jupyterlab = "*"
+matplotlib = "*"
+numpy = "*"
+scipy = "*"
+xarray = "*"
+xarray-einstats = "*"
+zarr = ">=3.0"
+h5netcdf = "*"
+h5py = "*"
+
+[tasks]
+register-kernel = "python -m ipykernel install --user --name pydata2026-ppc --display-name 'PyData 2026 PPC'"
+generate-data = "python scripts/data.py"
+jupyter = "jupyter lab"
